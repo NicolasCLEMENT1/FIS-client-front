@@ -6,13 +6,13 @@ class LoginApi {
         return {};
     }
 
-    static login(name, password) {
+    static login(username, password) {
         const headers = this.requestHeaders();
         const request = new Request("/auth/login", {
             method: 'POST',
             headers: headers,
             body: {
-                name: name,
+                username: username,
                 password: password
             }
         });

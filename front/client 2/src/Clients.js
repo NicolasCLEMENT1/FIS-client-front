@@ -3,7 +3,6 @@ import Client from './Client.js';
 import NewClient from './NewClient.js';
 import Alert from './Alert.js';
 import ClientApi from './clientApi.js';
-import {AuthContext} from './AuthContext';
 
 class Clients extends React.Component {
     constructor(props) {
@@ -55,7 +54,7 @@ class Clients extends React.Component {
     handleEdit(client) {
         this.setState(prevState => {
             const clients = prevState.clients;
-            const pos = clients.findIndex(c => c.name === client.name);
+            const pos = clients.findIndex(c => c.username === client.username);
             return {
                 clients: [...clients.slice(0,pos), Object.assign({}, client), ...clients.slice(pos+1)],
                 selectedClient: this.context.token
@@ -72,7 +71,7 @@ class Clients extends React.Component {
     handleDelete(client) {
         this.setState(prevState => {
             const clients = prevState.clients;
-            const pos = clients.findIndex(c => c.name === client.name);
+            const pos = clients.findIndex(c => c.username === client.username);
             return {
                 clients: [...clients.slice(0,pos), ...clients.slice(pos+1)],
             }
@@ -82,7 +81,7 @@ class Clients extends React.Component {
     newClient(client) {
         this.setState(prevState => {
             const clients = prevState.clients;
-            if (! clients.find(c => c.name === client.name)) {
+            if (! clients.find(c => c.username === client.username)) {
                 return ({
                     clients: [...prevState.clients, client]
                 });
@@ -96,7 +95,7 @@ class Clients extends React.Component {
 
     render() {
         const selectedClient = this.state.selectedClient;
-        const displayClient = selectedClient ? <div className="alert alert-primary">{selectedClient.name}</div> : ''
+        const displayClient = selectedClient ? <div className="alert alert-primary">{selectedClient.username}</div> : ''
 
         return (
             <div>
@@ -107,14 +106,19 @@ class Clients extends React.Component {
                 <table className="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Address</th>
+                        <th>Email</th>
                         <th>Phone</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <NewClient onAddClient={this.newClient}/>
                 {this.state.clients.map((client) => 
-                    <Client client={client} onDelete={this.handleDelete} onEdit={this.handleEdit} key={client.name} />
+                    <Client client={client} onDelete={this.handleDelete} onEdit={this.handleEdit} key={client.username} />
                 )}
                 </table>
             </div>
@@ -122,6 +126,5 @@ class Clients extends React.Component {
     }
 }
 
-//Clients.contextType = AuthContext;
 
 export default Clients

@@ -1,6 +1,4 @@
 import React from 'react';
-//import logo from './logo.svg';
-//import './App.css';
 import Clients from './Clients.js';
 import Login from './Login';
 import Logout from './Logout';

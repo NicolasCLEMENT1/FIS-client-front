@@ -5,7 +5,7 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            username: '',
             password: ''
         }
         this.handleLogin = this.handleLogin.bind(this);
@@ -14,15 +14,15 @@ class Login extends React.Component {
 
 
     handleChange(event) {
-        const name = event.target.name;
+        const username = event.target.username;
         const value = event.target.value;
         this.setState({
-            [name]: value
+            [username]: value
         });
     }
 
     handleLogin() {
-        LoginApi.login(this.state.name, this.state.password).then(result => {
+        LoginApi.login(this.state.username, this.state.password).then(result => {
             this.props.onLogin(result);
         });
     }
@@ -32,7 +32,7 @@ class Login extends React.Component {
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className="row">
                     <div className="col">
-                        <input className="form-control" name="name" value={this.state.name} onChange={this.handleChange} placeholder="User name"/>
+                        <input className="form-control" name="username" value={this.state.username} onChange={this.handleChange} placeholder="User name"/>
                     </div>
                     <div className="col">
                         <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password"/>

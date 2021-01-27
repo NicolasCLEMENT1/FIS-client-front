@@ -32,10 +32,10 @@ class Client extends React.Component {
     }
 
     handleChange(event) {
-        const name = event.target.name;
+        const name = event.target.username;
         const value = event.target.value;
         this.setState((prevState) => ({
-            client: {...prevState.client, [name]: value}
+            client: {...prevState.client, [username]: value}
         }));
     }
 
@@ -53,7 +53,12 @@ class Client extends React.Component {
         if(! this.state.isEditing) {
             content = 
                 <tr>
-                    <td>{this.state.client.name}</td>
+                    <td>{this.state.client.username}</td>
+                    <td>{this.state.client.password}</td>
+                    <td>{this.state.client.firstName}</td>
+                    <td>{this.state.client.lastName}</td>
+                    <td>{this.state.client.address}</td>
+                    <td>{this.state.client.email}</td>
                     <td>{this.state.client.phone}</td>
                     <td>
                         <button className="btn btn-primary" onClick={this.handleEdit}>Edit</button>
@@ -63,7 +68,12 @@ class Client extends React.Component {
         } else {
             content = 
                 <tr>
-                    <td><input className="form-control" name="name" value={this.state.client.name} onChange={this.handleChange}/></td>
+                    <td><input className="form-control" name="username" value={this.state.client.username} onChange={this.handleChange}/></td>
+                    <td><input className="form-control" name="password" value={this.state.client.password} onChange={this.handleChange}/></td>
+                    <td><input className="form-control" name="firstName" value={this.state.client.firstName} onChange={this.handleChange}/></td>
+                    <td><input className="form-control" name="lastName" value={this.state.client.lastName} onChange={this.handleChange}/></td>
+                    <td><input className="form-control" name="address" value={this.state.client.address} onChange={this.handleChange}/></td>
+                    <td><input className="form-control" name="email" value={this.state.client.email} onChange={this.handleChange}/></td>
                     <td><input className="form-control" name="phone" value={this.state.client.phone} onChange={this.handleChange}/></td>
                     <td>
                         <button className="btn btn-primary" onClick={this.handleSave}>Save</button>
