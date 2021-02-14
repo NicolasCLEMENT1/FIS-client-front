@@ -32,7 +32,7 @@ class Client extends React.Component {
     }
 
     handleChange(event) {
-        const name = event.target.username;
+        const username = event.target.username;
         const value = event.target.value;
         this.setState((prevState) => ({
             client: {...prevState.client, [username]: value}

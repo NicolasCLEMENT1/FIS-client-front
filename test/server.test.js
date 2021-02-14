@@ -2,15 +2,15 @@ const app = require('../server.js');
 const request = require('supertest');
 const Client= require('../clients.js');
 
-describe("Hello world tests", () => {
+describe("First tests", () => {
 
 
-    it("Should do an stupid test", () => {
-        const a = 5;
-        const b = 3;
+    it("First stupid test", () => {
+        const a = 1;
+        const b = 2;
         const sum = a + b;
 
-        expect(sum).toBe(8);
+        expect(sum).toBe(3);
     });
 
 });
@@ -18,7 +18,7 @@ describe("Hello world tests", () => {
 
 describe("Clients API", () => {
     describe("GET /", () => {
-        it("Should return an HTML document", () => {
+        it("Should return an HTML", () => {
             return request(app).get("/").then((response) => {
                 expect(response.status).toBe(200);
                 expect(response.type).toEqual(expect.stringContaining("html"));
@@ -31,13 +31,13 @@ describe("Clients API", () => {
 
         beforeAll(() => {
             const client = [
-             new Client     ( {"username": "guillermo",
-                    "password":"clave",
-                    "firstName":"Guillermo",
-                    "lastName":"Rodríguez",
-                    "address":"asdasdasd",
-                    "email":"prueba@prueba.com",
-                    "phone":"654366210"
+             new Client     ( {"username": "nicocle",
+                    "password":"wordpass",
+                    "firstName":"Nicolas",
+                    "lastName":"Clement",
+                    "address":"address",
+                    "email":"mail@mail.com",
+                    "phone":"606060606"
                 })
             ];
 
@@ -47,7 +47,7 @@ describe("Clients API", () => {
             });
         });
 
-        it("Should return all clients", () => {
+        it("Should return all the clients", () => {
             return request(app).get('/api/v1/clients').then((response) => {
                 expect(response.statusCode).toBe(200);
                 expect(response.body).toBeArrayOfSize(1);
@@ -56,13 +56,13 @@ describe("Clients API", () => {
         });
     });
     describe('POST /register', () => {
-        const client =  {"username": "guillermo22",
-        "password":"clave123444546",
-        "firstName":"Guillermo",
-        "lastName":"Rodríguez",
-        "address":"asdasdasd",
-        "email":"prueba@prueba.com",
-        "phone":"654366210"
+        const client =  {"username": "nicolclem",
+        "password":"wordpass2",
+        "firstName":"Nicolas",
+        "lastName":"Clement",
+        "address":"address",
+        "email":"mail@mail.com",
+        "phone":"606060606"
     };
         let dbInsert;
 
@@ -70,7 +70,7 @@ describe("Clients API", () => {
             dbInsert = jest.spyOn(Client, "create");
         });
 
-        it('Should add a new client if everything is fine', () => {
+        it('Should add a new client', () => {
             dbInsert.mockImplementation((c, callback) => {
                 callback(false);
             });
@@ -81,7 +81,7 @@ describe("Clients API", () => {
             });
         });
 
-        it('Should return 500 if there is a problem with the DB', () => {
+        it('Should return an error 500 if there is a problem with the data base', () => {
             dbInsert.mockImplementation((c, callback) => {
                 callback(true);
             });

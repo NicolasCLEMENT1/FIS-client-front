@@ -2,7 +2,7 @@ const Client = require('../clients');
 const mongoose = require('mongoose');
 const dbConnect = require('../db');
 
-describe('Contacts DB connection', () => {
+describe('Clients database connection', () => {
     beforeAll(() => {
         return dbConnect();
     })
@@ -13,14 +13,14 @@ describe('Contacts DB connection', () => {
         });
     });
 
-    it('writes a contact in the DB', (done) => {
-        const client = new Client({username: "guillermo",
-        password:"clave1234",
-        firstName:"Guillermo",
-        lastName:"Rodríguez",
-        address:"asdasdasd",
-        email:"prueba@prueba.com",
-        phone:"654366210"
+    it('writes a client in the database', (done) => {
+        const client = new Client({"username": "nicocle",
+        "password":"wordpass",
+        "firstName":"Nicolas",
+        "lastName":"Clement",
+        "address":"address",
+        "email":"mail@mail.com",
+        "phone":"606060606"
     });
         client.save((err, client) => {
             expect(err).toBeNull();
