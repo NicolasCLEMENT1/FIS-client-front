@@ -30,10 +30,15 @@ class App extends React.Component {
 
   render() {    
     return (
-      <div className="App">
+      <div className="grid-container">
+        <header>
+              <a href="/">Clients front-end by Nicolas CLEMENT</a>       
+        </header>
+        <main>
         {this.state.auth ? <Logout user={this.state.auth.user} onLogout={this.handleLogout}/> : 
         <Login onLogin={this.handleLogin}/>}
-        <h1>Clients</h1>
+
+        <h1>Client List</h1>
 
         <AuthContext.Provider value={this.state.auth}>
           <AuthContext.Consumer>
@@ -42,6 +47,10 @@ class App extends React.Component {
             }
           </AuthContext.Consumer>
         </AuthContext.Provider>
+        </main>
+        <footer>
+                 For FIS, 2020-2021
+        </footer>
       </div>
     );
   }
