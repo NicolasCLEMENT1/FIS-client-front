@@ -32,10 +32,10 @@ class Login extends React.Component {
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className="row">
                     <div className="col">
-                        <input className="form-control" name="username" value={this.state.username} onChange={this.handleChange} placeholder="User name"/>
+                        <input className="form-control" name="username" value={this.state.username} onChange={this.handleChange} defaultValue="Username"/>
                     </div>
                     <div className="col">
-                        <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password"/>
+                        <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.handleChange} defaultValue="Password"/>
                     </div>
                     <div className="col">
                         <button className="btn btn-primary" onClick={this.handleLogin}>Login</button>

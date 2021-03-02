@@ -33,7 +33,7 @@ class App extends React.Component {
       <div className="App">
         {this.state.auth ? <Logout user={this.state.auth.user} onLogout={this.handleLogout}/> : 
         <Login onLogin={this.handleLogin}/>}
-        <h1>This is our first client</h1>
+        <h1>Clients</h1>
 
         <AuthContext.Provider value={this.state.auth}>
           <AuthContext.Consumer>
