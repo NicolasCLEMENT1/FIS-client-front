@@ -14,10 +14,10 @@ class Login extends React.Component {
 
 
     handleChange(event) {
-        const username = event.target.username;
+        const name = event.target.name;
         const value = event.target.value;
         this.setState({
-            [username]: value
+            [name]: value
         });
     }
 
