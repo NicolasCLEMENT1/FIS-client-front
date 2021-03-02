@@ -68,13 +68,13 @@ class Client extends React.Component {
         } else {
             content = 
                 <tr>
-                    <td><input className="form-control" name="username" value={this.state.client.username} onChange={this.handleChange} defaultValue="Username"/></td>
-                    <td><input className="form-control" name="password" value={this.state.client.password} onChange={this.handleChange} defaultValue="Password"/></td>
-                    <td><input className="form-control" name="firstName" value={this.state.client.firstName} onChange={this.handleChange} defaultValue="First Name"/></td>
-                    <td><input className="form-control" name="lastName" value={this.state.client.lastName} onChange={this.handleChange} defaultValue="Last Name"/></td>
-                    <td><input className="form-control" name="address" value={this.state.client.address} onChange={this.handleChange} defaultValue="Address"/></td>
-                    <td><input className="form-control" name="email" value={this.state.client.email} onChange={this.handleChange} defaultValue="Email"/></td>
-                    <td><input className="form-control" name="phone" value={this.state.client.phone} onChange={this.handleChange} defaultValue="Phone"/></td>
+                    <td><input className="form-control" type="text" name="username" value={this.state.client.username} onChange={this.handleChange} placeholder="Username"/></td>
+                    <td><input className="form-control" type="text" name="password" value={this.state.client.password} onChange={this.handleChange} placeholder="Password"/></td>
+                    <td><input className="form-control" type="text" name="firstName" value={this.state.client.firstName} onChange={this.handleChange} placeholder="First Name"/></td>
+                    <td><input className="form-control" type="text" name="lastName" value={this.state.client.lastName} onChange={this.handleChange} placeholder="Last Name"/></td>
+                    <td><input className="form-control" type="text" name="address" value={this.state.client.address} onChange={this.handleChange} placeholder="Address"/></td>
+                    <td><input className="form-control" type="text" name="email" value={this.state.client.email} onChange={this.handleChange} placeholder="Email"/></td>
+                    <td><input className="form-control" type="text" name="phone" value={this.state.client.phone} onChange={this.handleChange} placeholder="Phone"/></td>
                     <td>
                         <button className="btn btn-primary" onClick={this.handleSave}>Save</button>
                         <button className="btn btn-primary" onClick={this.handleCancel}>Cancel</button>
